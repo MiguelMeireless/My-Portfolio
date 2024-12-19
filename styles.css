@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: "Courier New", Courier, monospace;
-    color: #00FF00;
+    color: #ffffff;
     background-color: black;
     overflow-y: scroll; /* Allow vertical scrolling */
 }
@@ -27,20 +27,20 @@ body {
 
 /* Add glowing effect to all project-related and education-related headers */
 h2, h3, h4 {
-    text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00, 0 0 40px #00FF00; /* Green glow */
+    text-shadow: 0 0 10px #4f61ef, 0 0 20px #4f61ef, 0 0 30px #4f61ef, 0 0 40px #4f61ef; /* Green glow */
     margin-bottom: 20px; /* More space between heading and text */
 }
 
 /* Project-related section headers (add more specific glow if needed) */
 h3 {
-    text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00, 0 0 40px #00FF00;
+    text-shadow: 0 0 10px #4f61ef, 0 0 20px #4f61ef, 0 0 30px #4f61ef, 0 0 40px #4f61ef;
     margin-top: 20px;
     margin-bottom: 15px;
 }
 
 /* Work Experience Section Headers */
 h4 {
-    text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00, 0 0 40px #00FF00;
+    text-shadow: 0 0 10px #4f61ef, 0 0 20px #4f61ef, 0 0 30px #4f61ef, 0 0 40px #4f61ef;
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -68,7 +68,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #00FF00;
+    color: #4f61ef;
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
@@ -82,39 +82,6 @@ nav ul li a {
 nav ul li a:hover {
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; /* Glowing red */
     transform: scale(1.1); /* Slightly enlarge the button */
-}
-
-/* Rainbow glow effect */
-nav ul li a {
-    animation: rainbowGlow 3s linear infinite;
-}
-
-/* Keyframes for rainbow glowing effect */
-@keyframes rainbowGlow {
-    0% {
-        text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green, 0 0 50px blue, 0 0 60px indigo, 0 0 70px violet;
-    }
-    14% {
-        text-shadow: 0 0 10px orange, 0 0 20px yellow, 0 0 30px green, 0 0 40px blue, 0 0 50px indigo, 0 0 60px violet, 0 0 70px red;
-    }
-    28% {
-        text-shadow: 0 0 10px yellow, 0 0 20px green, 0 0 30px blue, 0 0 40px indigo, 0 0 50px violet, 0 0 60px red, 0 0 70px orange;
-    }
-    42% {
-        text-shadow: 0 0 10px green, 0 0 20px blue, 0 0 30px indigo, 0 0 40px violet, 0 0 50px red, 0 0 60px orange, 0 0 70px yellow;
-    }
-    57% {
-        text-shadow: 0 0 10px blue, 0 0 20px indigo, 0 0 30px violet, 0 0 40px red, 0 0 50px orange, 0 0 60px yellow, 0 0 70px green;
-    }
-    71% {
-        text-shadow: 0 0 10px indigo, 0 0 20px violet, 0 0 30px red, 0 0 40px orange, 0 0 50px yellow, 0 0 60px green, 0 0 70px blue;
-    }
-    85% {
-        text-shadow: 0 0 10px violet, 0 0 20px red, 0 0 30px orange, 0 0 40px yellow, 0 0 50px green, 0 0 60px blue, 0 0 70px indigo;
-    }
-    100% {
-        text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green, 0 0 50px blue, 0 0 60px indigo, 0 0 70px violet;
-    }
 }
 
 /* Matrix background setup */
