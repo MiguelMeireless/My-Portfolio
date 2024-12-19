@@ -1,6 +1,6 @@
 const canvas = document.getElementById('matrix-canvas');
 const ctx = canvas.getContext('2d');
-const speed = 0.2
+const speed = 0.065
 
 // Set canvas dimensions
 canvas.width = window.innerWidth;
@@ -9,7 +9,7 @@ canvas.height = window.innerHeight;
 const gearImage = new Image();
 gearImage.src = 'gear-icon.png'; // Path to your gear icon image
 
-const fontSize = 45; // Increase the size to match the gear icon size
+const fontSize = 47; // Increase the size to match the gear icon size
 const columns = canvas.width / fontSize;
 
 // Initialize drops array
