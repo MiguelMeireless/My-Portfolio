@@ -1,42 +1,37 @@
 const canvas = document.getElementById('matrix-canvas');
 const ctx = canvas.getContext('2d');
+const speed = 0.2
 
 // Set canvas dimensions
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const matrixChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
-const fontSize = 16;
+const gearImage = new Image();
+gearImage.src = 'gear-icon.png'; // Path to your gear icon image
+
+const fontSize = 45; // Increase the size to match the gear icon size
 const columns = canvas.width / fontSize;
 
-// Initialize drops
-const drops = Array(Math.floor(columns)).fill(1);
+// Initialize drops array
+let drops = Array(Math.floor(columns)).fill(1);
 
+// Draw matrix effect with gears
 function drawMatrix() {
     // Clear the canvas and set a pure black background
     ctx.fillStyle = 'rgba(0, 0, 0, 1)'; // Pure black background
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Alternating colors: green and light gray for the falling characters
-    drops.forEach((y, x) => {
-        const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+    // Loop through each column to draw gear icons
+    drops.forEach((dropPositionY, x) => {
+        // Draw the gear icon
+        ctx.drawImage(gearImage, x * fontSize, dropPositionY * fontSize, fontSize, fontSize);
 
-        // Alternate colors by column index (green or light gray)
-        ctx.fillStyle = x % 2 === 0 ? '#00FF00' : '#D3D3D3'; // Green or Light Gray
-        ctx.font = `${fontSize}px monospace`;
-
-        // Apply text shadow for glow effect
-        ctx.shadowColor = ctx.fillStyle;
-        ctx.shadowBlur = 10; // Glow effect for text
-
-        // Draw the character
-        ctx.fillText(text, x * fontSize, y * fontSize);
-
-        // Reset drop to the top randomly
-        if (y * fontSize > canvas.height && Math.random() > 0.975) {
+        // Reset drop position to the top randomly
+        if (dropPositionY * fontSize > canvas.height && Math.random() > 0.975) {
             drops[x] = 0;
         }
-        drops[x]++;
+        // Increment drop position
+        drops[x] += speed;
     });
 }
 
@@ -44,8 +39,9 @@ function drawMatrix() {
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    drops.length = Math.floor(canvas.width / fontSize);
-    drops.fill(1);
+    // Recalculate number of columns based on the new width
+    const newColumns = Math.floor(canvas.width / fontSize);
+    drops = Array(newColumns).fill(1);
 });
 
 // Start the animation
@@ -54,4 +50,7 @@ function animateMatrix() {
     requestAnimationFrame(animateMatrix);
 }
 
-animateMatrix();
+// Wait for the image to load before starting the animation
+gearImage.onload = () => {
+    animateMatrix();
+};
